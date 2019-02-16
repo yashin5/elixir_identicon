@@ -12,8 +12,7 @@ defmodule ElixirIdenticon do
     %ElixirIdenticon.Image{hex: hex}
   end
 
-  def pick_color(image) do
-    %ElixirIdenticon.Image{hex: [r, g, b | _rest_list]} = image
-    [r, g, b]
+  def pick_color(%ElixirIdenticon.Image{hex: [r, g, b | _rest_list]} = image) do
+    %ElixirIdenticon.Image{image | color: [r, g, b]}
   end
 end
