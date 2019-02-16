@@ -2,7 +2,7 @@ defmodule ElixirIdenticon do
   def main(input) do 
     input
     |> hash_input
-    |> pich_color
+    |> pick_color
   end
 
   def hash_input(input) do
@@ -10,5 +10,11 @@ defmodule ElixirIdenticon do
     |> :binary.bin_to_list
 
     %ElixirIdenticon.Image{hex: hex}
+  end
+
+  def pick_color(image) do
+    %ElixirIdenticon.Image{hex: color} = image
+    [r, g, b | _rest_list] = color
+    [r, g, b]
   end
 end
