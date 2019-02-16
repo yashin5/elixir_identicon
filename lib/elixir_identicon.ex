@@ -1,18 +1,14 @@
 defmodule ElixirIdenticon do
-  @moduledoc """
-  Documentation for ElixirIdenticon.
-  """
+  def main(input) do 
+    input
+    |> hash_input
+    |> pich_color
+  end
 
-  @doc """
-  Hello world.
+  def hash_input(input) do
+    hex = :crypto.hash(:md5, input)
+    |> :binary.bin_to_list
 
-  ## Examples
-
-      iex> ElixirIdenticon.hello()
-      :world
-
-  """
-  def hello do
-    :world
+    %ElixirIdenticon.Image{hex: hex}
   end
 end
